@@ -93,7 +93,7 @@ class ZeDmdPlatform(RgbDmdPlatform):
         if not self.device:
             self.device = ZeDmdDevice(self.config)
         return self.device
-    
+
 
 # noinspection PyCallingNonCallable
 class ZeDmdDevice(DmdPlatformInterface):
@@ -107,7 +107,7 @@ class ZeDmdDevice(DmdPlatformInterface):
         self.config = config
         self.matrix = ZeDMD_ext()
         self.log = logging.getLogger('ZeDMDDevice')
-        self.log.debug('Numpy version : ' + numpy.__version__)
+        self.log.debug('Numpy version : %s', numpy.__version__)
 
     def update(self, data):
         """Update DMD data."""
@@ -116,7 +116,7 @@ class ZeDmdDevice(DmdPlatformInterface):
 
     def set_brightness(self, brightness):
         """Set brightness.
-        
+
         Range is [0.0 ... 1.0].
         """
         if brightness < 0.0 or brightness > 1.0:
